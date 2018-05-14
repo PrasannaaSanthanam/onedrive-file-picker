@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OneDrive Picker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body ng-app="oneDrivePickerApp" ng-controller="OneDrivePickerCtrl">
+    <div class="container">
+        <h1>OneDrive File Picker</h1>
+        <button class="btn btn-primary" ng-click="onPickFile()">Open Files</button>
+        <ul>
+            <li ng-repeat="file in selectedFiles">
+                Name: {{ ::file.name }}
+                Url: {{ ::file.url }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="oneDrivePicker.js"></script>
+<script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+
+</html>
