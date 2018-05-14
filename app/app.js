@@ -9,7 +9,9 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
         function ($scope, oneDrivePickerService) {
             $scope.selectedFiles = [];
             $scope.onFilePicked = function(files) {
-                $scope.selectedFiles = oneDrivePickerService.getFileInfos(files);
+                 $scope.$apply(function() {
+                    $scope.selectedFiles = oneDrivePickerService.getFileInfos();
+                });            
             };
             $scope.onPickFile = function() {
                 oneDrivePickerService.pickAFile($scope.onFilePicked);
