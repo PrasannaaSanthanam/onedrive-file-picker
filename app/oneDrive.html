@@ -16,8 +16,7 @@
         <button class="btn btn-primary" ng-click="onPickFile()">Open Files</button>
         <ul>
             <li ng-repeat="file in selectedFiles">
-                Name: {{ ::file.name }}
-                Url: {{ ::file.url }}
+                File: <a href= {{ ::file.url }}>{{ ::file.name }}</a>
             </li>
         </ul>
     </div>
