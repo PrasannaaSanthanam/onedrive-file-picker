@@ -2,7 +2,7 @@ angular.module('oneDrivePickerModule', [])
     .provider('oneDrivePickerConfig', function(){
         var configs = {
             clientId: '',
-            action: 'query',
+            action: 'share',
             multiSelect: false,
         };
 
