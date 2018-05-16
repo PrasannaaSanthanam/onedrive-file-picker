@@ -5,10 +5,30 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
             clientId: 'bad2f6c6-15ec-4c98-ace0-1174419ee9ce'
         });
     }])
-    .controller('$log', 'OneDrivePickerCtrl', ['$scope', 'oneDrivePickerService',
+    .controller('OneDrivePickerCtrl', ['$log', '$scope', 'oneDrivePickerService',
         function ($log, $scope, oneDrivePickerService) {
-            $scope.selectedFiles = [{name: 'NA', url: 'NA'}];
-
+            $scope.pickerResponse = {
+                k: '1'
+            };
+            $scope.shareLinkOptions = [
+                {
+                    key: 'share', 
+                    text: 'Share'
+                },
+                {
+                    key: 'download',
+                    text: 'Download'
+                },
+                {
+                    key: 'query',
+                    text: 'Query'
+                },
+                {
+                    key: 'organization',
+                    text: 'Organization'
+                }
+            ];
+            $scope.linkType = $scope.shareLinkOptions[0].key;
             var onError = function(error) {
                 $log.error('OneDrive Error:', error);
             };
@@ -24,7 +44,10 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
             };
 
             $scope.onPickFile = function() {
-                oneDrivePickerService.pickAFile($scope.onFilePicked, onCanceled, onError);
+                var options = {
+                    action: $scope.linkType
+                };
+                oneDrivePickerService.pickAFile($scope.onFilePicked, onCanceled, onError, options);
             };
         }
     ]);
