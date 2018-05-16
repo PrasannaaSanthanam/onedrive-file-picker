@@ -7,7 +7,9 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
     }])
     .controller('OneDrivePickerCtrl', ['$log', '$scope', 'oneDrivePickerService',
         function ($log, $scope, oneDrivePickerService) {
-            $scope.pickerResponse = {};
+            $scope.pickerResponse = {
+                k: '1'
+            };
             $scope.shareLinkOptions = [
                 {
                     key: 'share', 
@@ -27,7 +29,6 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
                 }
             ];
             $scope.linkType = $scope.shareLinkOptions[0].key;
-            
             var onError = function(error) {
                 $log.error('OneDrive Error:', error);
                 $scope.$apply(function () {
@@ -42,6 +43,7 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
             $scope.onFilePicked = function(files) {
                 $scope.$apply(function() {
                     $scope.pickerResponse = files;
+                    $scope.selectedFile = oneDrivePickerService.getFileInfos(files);
                 });
             };
 
