@@ -17,9 +17,16 @@
         <select ng-options="opt.key as opt.text for opt in shareLinkOptions" ng-model="linkType"></select>
         <button class="btn btn-primary" ng-click="onPickFile()">Pick a file</button>
     </div>
-    <div class="container">
-        Picker Response:
-        <pre>{{ pickerResponse | json }}</pre>
+    <div class="container panel-body">
+        <div>Picked File: {{ selectedFile.name }} </div>
+        <div>Url:
+            <a href="{{ selectedFile.url }}"> Share Url </a>
+        </div>
+
+        <div class="panel-body">
+            Picker Response:
+            <pre>{{ pickerResponse | json }}</pre>
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
