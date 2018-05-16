@@ -27,9 +27,12 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
                 }
             ];
             $scope.linkType = $scope.shareLinkOptions[0].key;
+            
             var onError = function(error) {
                 $log.error('OneDrive Error:', error);
-                $scope.pickerResponse = error;
+                $scope.$apply(function () {
+                    $scope.pickerResponse = error;
+                });
             };
 
             var onCanceled = function() {
