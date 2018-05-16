@@ -28,7 +28,7 @@ angular.module('oneDrivePickerModule', [])
                 return true;
             };
 
-            self.pickAFile = function (onFilePicked, onCancelled, onError) {
+            self.pickAFile = function (onFilePicked, onCancelled, onError, options) {
 
                 if (!checkForOneDrive()) {
                     $log.error('OneDrive not available');
@@ -39,7 +39,7 @@ angular.module('oneDrivePickerModule', [])
                     success: onFilePicked || angular.noop,
                     cancel: onCancelled || angular.noop,
                     error: onError || angular.noop
-                }, oneDrivePickerConfig.configs);
+                }, oneDrivePickerConfig.configs, options);
 
                 OneDrive.open(pickerOptions);
             };
