@@ -7,9 +7,7 @@ angular.module('oneDrivePickerApp', ['oneDrivePickerModule'])
     }])
     .controller('OneDrivePickerCtrl', ['$log', '$scope', 'oneDrivePickerService',
         function ($log, $scope, oneDrivePickerService) {
-            $scope.pickerResponse = {
-                k: '1'
-            };
+            $scope.pickerResponse = {};
             $scope.shareLinkOptions = [
                 {
                     key: 'share', 
